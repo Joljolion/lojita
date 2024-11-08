@@ -19,7 +19,7 @@
     font-family: "Poppins", sans-serif;
     width: 100%;
     height: 100vh;
-    background-image: url('@/assets/img-back.jpg');
+    background-image: url('@/assets/img-doces.jpg');
     background-size: cover;
     display: flex;
     align-items: center;
