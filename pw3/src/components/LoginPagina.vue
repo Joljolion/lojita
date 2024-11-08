@@ -7,6 +7,8 @@
             <label for="">Senha</label>
             <input type="password" placeholder="Digite sua senha" name="" id="">
             <input type="submit" value="ENTRAR">
+            <p>Ainda não tem conta?</p>
+            <a href="">Crie sua conta</a>
         </form>
 
     </div>
@@ -14,7 +16,7 @@
 
 <style>
 .container {
-    font-family: "Poppins", sans-serif;;
+    font-family: "Poppins", sans-serif;
     width: 100%;
     height: 100vh;
     background-image: url('@/assets/img-back.jpg');
@@ -30,7 +32,7 @@
     background-color: white;
     border-radius: 15px;
     width: 350px;
-    height: 420px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,11 +56,8 @@
     width: 100%;
     height: 35px;
     border-style: none;
-    border-bottom: solid 2px black;
+    border-bottom: solid 1px black;
     margin-bottom: 20px;
-}
-
-.container .formulario input::placeholder {
     font-size: 16px;
     font-weight: 400;
 }
@@ -69,13 +68,23 @@
     background-color: black;
     color:white;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
     border-radius: 10px;
+    margin-bottom: 10px;
     margin-top: 10px;
     border-style: none;
     font-family: "Poppins", sans-serif;
 }
 
+.container .formulario p {
+    width: 100%;
+    margin-bottom: 0;
+    
+}
+
+.container .formulario a {
+    width: 100%;
+}
 
 
 </style>
