@@ -1,0 +1,189 @@
+Entidades:
+
+	- Loja
+
+	- Cliente
+
+	- Compra
+
+	- Produtos
+
+Relacionamentos:
+
+	- 1 Loja 	possui		N Clientes
+
+	- 1 Cliente 	pertence a	N Lojas
+
+	- 1 Loja 	possui		N Produtos
+
+	- 1 Produto	pertence a 	N Lojas
+
+	- 1 Cliente	realiza 	N Compras
+
+	- 1 Compra	é feita por	1 Cliente
+
+	- 1 Compra	possui		N Produtos
+
+	- 1 Produto	pertence a 	N Compras
+
+use lojita;
+
+db.createCollection('Loja');
+db.createCollection('Cliente');
+db.createCollection('Compra');
+db.createCollection('Produto');
+
+// exemplos de itens para inserir em cada collection:
+
+/*
+
+// loja
+
+{
+
+	_id
+	nome
+	endereco
+	telefone
+	clientes [
+		// objectid dos clientes
+	]
+	produtos [
+		//objectid dos produtos
+	]
+	
+
+}
+
+{
+  "_id": ObjectId("6487a1f0c312b3414c3e2e34"),
+  "nome": "Loja Central",
+  "endereco": "Rua das Flores, 123, Centro, SP",
+  "telefone": "(11) 99999-1234",
+  "clientes": [
+    ObjectId("6487a1f0c312b3414c3e2e35"),
+    ObjectId("6487a1f0c312b3414c3e2e36")
+  ],
+  "produtos": [
+    ObjectId("6487a1f0c312b3414c3e2e37"),
+    ObjectId("6487a1f0c312b3414c3e2e38")
+  ]
+}
+
+
+// clientes
+
+{
+
+	_id
+	nome
+	email
+	telefone
+	cpf
+	compras[
+		//objectid das compras
+	]
+
+}
+
+{
+  "_id": ObjectId("6487a1f0c312b3414c3e2e35"),
+  "nome": "João da Silva",
+  "email": "joao.silva@email.com",
+  "telefone": "(11) 98888-5678",
+  "cpf": "123.456.789-00",
+  "compras": [
+    ObjectId("6487a1f0c312b3414c3e2e39"),
+    ObjectId("6487a1f0c312b3414c3e2e3a")
+  ]
+}
+
+// compras
+
+{
+
+	_id
+	clienteid
+	data
+	produtos [
+		//objectid dos produtos
+	]
+	total
+
+}
+
+{
+  "_id": ObjectId("6487a1f0c312b3414c3e2e39"),
+  "clienteId": ObjectId("6487a1f0c312b3414c3e2e35"),
+  "data": ISODate("2024-11-29T14:30:00Z"),
+  "produtos": [
+    ObjectId("6487a1f0c312b3414c3e2e37"),
+    ObjectId("6487a1f0c312b3414c3e2e38")
+  ],
+  "total": 150.00
+}
+
+{
+  "_id": ObjectId("6487a1f0c312b3414c3e2e37"),
+  "nome": "Teclado Mecânico",
+  "descricao": "Teclado mecânico com iluminação RGB.",
+  "preco": 250.00,
+  "lojas": [
+    ObjectId("6487a1f0c312b3414c3e2e34"),
+    ObjectId("6487a1f0c312b3414c3e2e40")
+  ]
+}
+
+*/
+
+Okay... agora a gente vai que fazer o negócio funcionar mesmo
+
+a partir de agora já é só javascript
+
+db.createCollection('Loja');
+
+{
+  "_id": ObjectId("6487a1f0c312b3414c3e2e34"),
+  "nome": "Loja Central",
+  "endereco": "Rua das Flores, 123, Centro, SP",
+  "telefone": "(11) 99999-1234",
+  "clientes": [],
+  "produtos": [] 
+}
+
+
+db.createCollection('Cliente');
+
+{
+  "_id": ObjectId("6487a1f0c312b3414c3e2e35"),
+  "nome": "João da Silva",
+  "email": "joao.silva@email.com",
+  "telefone": "(11) 98888-5678",
+  "cpf": "123.456.789-00",
+  "compras": []
+}
+
+
+db.createCollection('Produto');
+
+{
+  "_id": ObjectId("6487a1f0c312b3414c3e2e37"),
+  "nome": "Teclado Mecânico",
+  "descricao": "Teclado mecânico com iluminação RGB.",
+  "preco": 250.00,
+  "lojas": [
+    ObjectId("6487a1f0c312b3414c3e2e34"),
+  ]
+}
+
+db.createCollection('Compra');
+
+{
+  "_id": ObjectId("6487a1f0c312b3414c3e2e39"),
+  "clienteId": ObjectId("6487a1f0c312b3414c3e2e35"),
+  "data": ISODate("2024-11-29T14:30:00Z"),
+  "produtos": [
+    ObjectId("6487a1f0c312b3414c3e2e37")
+  ],
+  "total": 250.00
+}
