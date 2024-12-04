@@ -14,7 +14,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .container {
     font-family: "Poppins", sans-serif;
     width: 100%;
@@ -31,7 +31,7 @@
     padding: 0 40px;
     background-color: white;
     border-radius: 15px;
-    width: 350px;
+    width: 25%;
     height: 500px;
     display: flex;
     flex-direction: column;
@@ -42,14 +42,14 @@
 
 .container .formulario h1 {
     width: 100%;
-    font-size: 35px;
+    font-size: 1.8em;
     font-weight: 500;
     margin-bottom: 35px;
 }
 
 .container .formulario label {
     width: 100%;
-    font-size: 22px;
+    font-size: 1.2em;
     margin-bottom: 7px;
     font-weight: 400;
 }
@@ -60,7 +60,7 @@
     border-style: none;
     border-bottom: solid 1px black;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
 }
 
@@ -69,7 +69,7 @@
     height: 45px;
     background-color: black;
     color:white;
-    font-size: 18px;
+    font-size: 1em;
     font-weight: 600;
     border-radius: 10px;
     margin-bottom: 25px;
@@ -80,12 +80,13 @@
 
 .container .formulario p {
     width: 100%;
-    margin-bottom: 0;
+    font-size: 0.8em;
     
 }
 
 .container .formulario a {
     width: 100%;
+    font-size: 0.8em;
 }
 
 

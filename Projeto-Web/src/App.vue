@@ -19,7 +19,7 @@ export default {
     <nav>
       <RouterLink to="/" class="link">Home</RouterLink>
       <RouterLink to="/sobre-nos" class="link">Sobre Nós</RouterLink>
-      <RouterLink to="/sobre-nos" class="link">Contato</RouterLink>
+      <RouterLink to="/contato" class="link">Contato</RouterLink>
       <RouterLink to="/login" class="link">Login</RouterLink>
     </nav>
   </header>
@@ -51,13 +51,13 @@ header .logo {
 }
 
 header .logo h1 {
-  font-size: 30px;
+  font-size: 1.2em;
   font-weight: 500;
   color: white;
 }
 
 header .logo img {
-  width: 60px;
+  width: 25%;
   margin-right: 15px;
   border-radius: 100%;
 }
@@ -71,7 +71,7 @@ header nav {
 
 header nav .link {
   color: white;
-  font-size: 22px;
+  font-size: 0.9em;
   font-weight: 400;
   text-decoration: none
 }
