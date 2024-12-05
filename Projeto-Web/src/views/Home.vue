@@ -13,17 +13,35 @@
 
       <!-- Carrossel -->
       <div class="carrossel">
-        <button @click="prevSlide" class="carrossel-button prev">←</button>
+        <button @click="voltarSlide" class="botao-carrossel anterior">←</button>
 
-        <div class="carrossel-container">
-          <div class="carrossel-item" v-for="(produto, index) in produtos" :key="index" :class="{ active: currentSlide === index }">
-            <img :src="produto.imagem" :alt="produto.nome" class="produto-img"/>
+        <div class="carrossel-container" :style="{ transform: 'translateX(-' + (slideAtual * 33.33) + '%)' }">
+          <div 
+            class="item-carrossel" 
+            v-for="(produto, index) in produtos" 
+            :key="index">
+            <img :src="produto.imagem" :alt="produto.nome" class="imagem-produto"/>
             <h3>{{ produto.nome }}</h3>
             <p>{{ produto.descricao }}</p>
           </div>
         </div>
 
-        <button @click="nextSlide" class="carrossel-button next">→</button>
+        <button @click="proximoSlide" class="botao-carrossel proximo">→</button>
+      </div>
+    </div>
+
+    <div class="container-3">
+      <div class="texto-2">
+        <h2>Sobre Nós</h2>
+        <p>Na Doce Delícia, acreditamos que cada sobremesa conta uma história. Desde 2010, combinamos paixão, 
+          ingredientes de qualidade e criatividade para trazer o melhor da confeitaria artesanal até você. 
+          Nosso compromisso é transformar momentos simples em experiências doces e inesquecíveis. Venha nos conhecer e descubra como é bom saborear a felicidade!</p>
+      </div>
+      <div class="imagens">
+        <img src="https://confetdoceria.com.br/wp-content/uploads/2023/02/IMG_0339-scaled.jpg" alt="">
+        <img src="https://cdn0.casamentos.com.br/vendor/6115/3_2/960/jpg/decoracao-de-mesa-de-doces-qauntidade-de-docinhos_13_246115-1553720238.jpeg" alt="">
+        <img src="https://xvcuritiba.com.br/wp-content/uploads/2021/10/WhatsApp-Image-2021-10-05-at-10.41.30.jpeg.webp" alt="">
+        <img src="https://img.freepik.com/fotos-gratis/vista-de-deliciosas-e-doces-sobremesas-de-cupcake-com-glace_23-2150679640.jpg" alt="">
       </div>
     </div>
 </template>
@@ -33,48 +51,53 @@ export default {
   name: 'Home',
   data() {
     return {
-      // Lista de produtos para o carrossel
       produtos: [
         {
           nome: 'Cupcake de Baunilha',
           descricao: 'Delicioso cupcake de baunilha com cobertura cremosa.',
-          imagem: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.mococa.com.br%2Freceita%2Fcupcake-mococa%2F&psig=AOvVaw2wNRtDlB2Fdqbrh2JODVti&ust=1733428958205000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNChnNX0jooDFQAAAAAdAAAAABAE'
+          imagem: 'https://img.freepik.com/fotos-premium/cupcake-no-fundo-branco_985046-2281.jpg'
         },
         {
           nome: 'Bolo de Chocolate',
           descricao: 'Bolo de chocolate super macio com recheio de ganache.',
-          imagem: '@/assets/produto2.jpg'
+          imagem: 'https://img.freepik.com/fotos-gratis/bolos-de-copo_74190-18.jpg?semt=ais_hybrid'
         },
         {
           nome: 'Torta de Frutas',
           descricao: 'Torta fresca e saborosa com frutas da estação.',
-          imagem: '@/assets/produto3.jpg'
+          imagem: 'https://t3.ftcdn.net/jpg/06/22/53/86/360_F_622538689_8peXS9fJS2hM5LMtgr7YQWUU8IHskiDP.jpg'
         },
         {
           nome: 'Brownie',
           descricao: 'Brownie recheado com pedaços de chocolate e nozes.',
-          imagem: '@/assets/produto4.jpg'
+          imagem: 'https://t4.ftcdn.net/jpg/02/29/12/83/360_F_229128345_TTMINYwsJdkbukDeP53M6GoHqjUaT2ym.jpg'
+        },
+        {
+          nome: 'Tiramisu',
+          descricao: 'Clássico tiramisu com camadas de café e mascarpone.',
+          imagem: 'https://www.shutterstock.com/image-photo/closeup-front-view-red-cupcake-600nw-2481316095.jpg'
         }
       ],
-      currentSlide: 0 // Indica o slide atual
+      slideAtual: 0, // Indica o slide atual
+      produtosPorSlide: 3 // Número de produtos por slide
     };
   },
   methods: {
     // Avançar para o próximo slide
-    nextSlide() {
-      if (this.currentSlide < this.produtos.length - 1) {
-        this.currentSlide++;
+    proximoSlide() {
+      if (this.slideAtual < Math.floor(this.produtos.length / this.produtosPorSlide)) {
+        this.slideAtual++;
       } else {
-        this.currentSlide = 0; // Volta ao primeiro produto
+        this.slideAtual = 0; // Volta ao primeiro conjunto de produtos
       }
     },
 
     // Voltar para o slide anterior
-    prevSlide() {
-      if (this.currentSlide > 0) {
-        this.currentSlide--;
+    voltarSlide() {
+      if (this.slideAtual > 0) {
+        this.slideAtual--;
       } else {
-        this.currentSlide = this.produtos.length - 1; // Vai para o último produto
+        this.slideAtual = Math.floor(this.produtos.length / this.produtosPorSlide); // Vai para o último conjunto de produtos
       }
     }
   }
@@ -102,14 +125,14 @@ body{
 
 .container-1 .texto h2 {
     color: white;
-    font-size: 1.7em;
+    font-size: 1.9em;
     font-weight: 600;
     margin-bottom: 20px;
 }
 
 .container-1 .texto p {
     color: white;
-    font-size: 0.9em;
+    font-size: 1.1em;
     font-weight: 400;
     margin-bottom: 30px;
 } 
@@ -134,7 +157,7 @@ body{
 .container-2 {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -142,14 +165,13 @@ body{
 }
 
 .container-2 h2 {
-  font-size: 1.5em;
+  font-size: 2.5em;
   font-weight: 600;
   color: #33181D;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
-/* Estilos do Carrossel */
 .carrossel {
   position: relative;
   width: 80%;
@@ -163,34 +185,38 @@ body{
   transition: transform 0.5s ease;
 }
 
-.carrossel-item {
-  min-width: 100%;
+.item-carrossel {
+  min-width: 33.33%; /* Exibe 3 produtos por vez */
   box-sizing: border-box;
   text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.produto-img {
+.imagem-produto {
   width: 80%;
-  max-width: 300px;
-  height: auto;
+  max-width: 200px;
+  height: 200px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
   margin-bottom: 10px;
 }
 
-.produto h3 {
+.item-carrossel h3 {
   font-size: 1.2em;
   color: #33181D;
   font-weight: bold;
 }
 
-.produto p {
+.item-carrossel p {
+  width: 70%;
   font-size: 0.9em;
   color: #666;
 }
 
 /* Estilo dos botões de navegação */
-.carrossel-button {
+.botao-carrossel {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -202,25 +228,61 @@ body{
   z-index: 10;
 }
 
-.prev {
+.anterior {
   left: 10px;
 }
 
-.next {
+.proximo {
   right: 10px;
 }
 
-.carrossel-button:hover {
+.botao-carrossel:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Transição suave entre os slides */
-.carrossel-item.active {
-  opacity: 1;
-  transition: opacity 0.5s ease;
+.container-3 {
+  background-color: #B86E87;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 0 200px;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
-.carrossel-item:not(.active) {
-  opacity: 0;
+.container-3 .texto-2 {
+  width: 40%;
 }
+
+.container-3 .texto-2 h2 {
+  font-size: 3em;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.container-3 .texto-2 p {
+  font-size: 1.1em;
+  font-weight: 400;
+  color: white;
+}
+
+.container-3 .imagens{
+  width: 45%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.container-3 .imagens img {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 </style>

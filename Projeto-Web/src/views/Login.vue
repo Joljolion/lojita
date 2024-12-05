@@ -1,14 +1,12 @@
 <template>
     <div class="container">
-        <form action="" class="formulario">
+        <form @submit.prevent="entrar" class="formulario">
             <h1>Login</h1>
-            <label for="">Email</label>
-            <input type="email" placeholder="Digite seu email aqui" id="">
-            <label for="">Senha</label>
-            <input type="password" placeholder="Digite sua senha" name="" id="">
+            <label for="email">Email</label>
+            <input type="email" placeholder="Digite seu email aqui" id="email">
+            <label for="senha">Senha</label>
+            <input type="password" placeholder="Digite sua senha" id="senha">
             <input type="submit" value="ENTRAR">
-            <p>Ainda não tem conta?</p>
-            <a href="">Crie sua conta</a>
         </form>
 
     </div>
@@ -56,7 +54,7 @@
 
 .container .formulario input[type="email"], input[type="password"]  {
     width: 100%;
-    height: 35px;
+    height: 40px;
     border-style: none;
     border-bottom: solid 1px black;
     margin-bottom: 20px;
@@ -78,24 +76,18 @@
     font-family: "Poppins", sans-serif;
 }
 
-.container .formulario p {
-    width: 100%;
-    font-size: 0.8em;
-    
-}
-
-.container .formulario a {
-    width: 100%;
-    font-size: 0.8em;
-}
-
 
 </style>
 
 <script>
 
 export default {
-    name: 'Login',
-}
-
+  name: "Login",
+  methods: {
+    entrar() {
+      // Redirecionar para a página de Cadastro de Produtos
+      this.$router.push("/cadastro");
+    },
+  },
+};
 </script>

@@ -1,7 +1,7 @@
 <template >
     <div class="container-contato">
         <div class="texto">
-            <h2>Entre em Contato Conosco</h2>
+            <h2>Entre em <br>Contato Conosco</h2>
             <p>Estamos aqui para ajudar! Se você tiver alguma dúvida, sugestão ou precisar de mais informações, fique à vontade para nos enviar uma mensagem. Nossa equipe está pronta para responder suas questões o mais rápido possível. 
                 Escolha a forma que for mais conveniente para você e entraremos em contato em breve!</p>
         </div>
@@ -36,13 +36,13 @@ export default {
     }
 
     .container-contato .texto h2 {
-        font-size: 1.4em;
+        font-size: 2.4em;
         font-weight: 500;
         margin-bottom: 15px;
     }
 
     .container-contato .texto p {
-        font-size: 0.76em;
+        font-size: 1.2em;
         font-weight: 300;
     }
 
@@ -58,21 +58,22 @@ export default {
     }
 
     .container-contato .formulario label{
-        font-size: 0.9em;
+        font-size: 1.3em;
+        font-weight: 400;
         margin-bottom: 5px;
     }
 
     .container-contato .formulario input{
-        margin-bottom: 15px;
-        font-size: 0.7em;
+        margin-bottom: 20px;
+        font-size: 1em;
         border-style: none;
         border-bottom: black 1px solid;
-        height: 30px;
+        height: 40px;
     }
 
     .container-contato .formulario textarea{
         width: 100%;
-        font-size: 0.7em;
+        font-size: 1em;
         margin-bottom: 20px;
     }
 
@@ -84,7 +85,7 @@ export default {
         color: white;
         border-radius: 8px;
         font-weight: 600;
-        font-size: 0.9em;
+        font-size: 1.2em;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
 </style>

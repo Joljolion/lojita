@@ -1,3 +1,4 @@
+import Cadastro from '@/views/CadastroProduto.vue'
 import Contato from '@/views/Contato.vue'
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
@@ -27,6 +28,11 @@ const router = createRouter({
       path:'/contato',
       name: 'Contato',
       component: Contato
+    },
+    {
+      path:'/cadastro',
+      name: 'Cadastro',
+      component: Cadastro
     }
   ],
 })
